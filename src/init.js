@@ -74,17 +74,6 @@ $(document).ready(function() {
     // animatePikachu();
   });
 
-  function loop() {
-    $('.snorlax').css({right:0});
-    $('.snorlax').animate ({
-      right: '+=1400',
-     }, 5000, 'linear', function() {
-            loop();
-        });
-    }
-        
-    loop();
-
   $('body').on('click', '.pikachu', function(event) {
     console.log(event);
     var pikachu = event.target;
@@ -104,15 +93,16 @@ $(document).ready(function() {
   
 
 
-  $('.alignButton').on('click', '.pikachu', function(event) {
-    var padding = 50;
-    $('.pikachu').animate({top : (5 + 'px')}, 2000);
-    // for (var i = 0; i < window.dancers.length; i++) {
-    //   // window.dancers[i].setPosition(i + padding, 10);
-    //   // padding += 50;
-    //   var pikachu = window.dancers[i];
-    //   $(pikachu).animate({top : (5 + 'px')}, 2000);
-    // }
+  $('.alignButton').on('click', function(event) {
+    console.log(window.dancers[0]);
+    
+    $(window.dancers[0]).animate({top : (5 + 'px')}, 2000);
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+      // padding += 50;
+      //var pikachu = window.dancers[i];
+      //$(pikachu).animate({top : (5 + 'px')}, 2000);
+    }
   });
 });
 
