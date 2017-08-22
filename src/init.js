@@ -29,5 +29,38 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
   });
+
+
+  $('.addPikachuButton').on('click', function(event) {
+
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+
+    var pikachu = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+    window.dancers.push(pikachu);
+    $('body').append(pikachu.$node);
+  });
+
+
+  $('.alignButton').on('click', function(event) {
+    var padding = 50;
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].setPosition(i + padding, 10);
+      padding += 50;
+    }
+  });
+
+
+
+
+
 });
 
