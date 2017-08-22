@@ -10,7 +10,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton {
+.title, .addDancerButton, .addSnorlaxButton, .addPikachuButton, .alignButton {
   padding:5px 12px;
   float:right;
 }
@@ -31,15 +31,7 @@ body, a:link, a:visited, a:active{
   border: 0px;
   position: relative;
   cursor: pointer;
-  /*transform: rotate(45deg);*/
 }
-/*
-.snorlax{
-  transform: scale(0.5);
-  transition: all 3s;
-  position: relative;
-  cursor: pointer;
-}*/
 
 .snorlax {
   width: 100px;

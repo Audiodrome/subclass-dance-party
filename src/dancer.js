@@ -35,9 +35,3 @@ makeDancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
-
-// var dancer = new makeDancer(5, 4, 3);
-// dancer.step();
-// dancer.setPosition();
-
-// console.log(JSON.stringify(new makeDancer));
