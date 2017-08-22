@@ -3,7 +3,9 @@ var makePikachuDancer = function(top, left, timeBetweenSteps) {
 
   makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
   this.$node.attr('src', 'src/pikachu-icon.png');
+  this.$node.addClass('pikachu');
+  console.log(this.$node);
 };
 
-makePikachuDancer.prototype = Object.create(makeBlinkyDancer.prototype);
+makePikachuDancer.prototype = Object.create(makeDancer.prototype);
 makePikachuDancer.prototype.constructor = makePikachuDancer;
