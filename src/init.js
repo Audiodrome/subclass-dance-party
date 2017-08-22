@@ -46,12 +46,44 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     window.dancers.push(pikachu);
-    var temp = $('body').append(pikachu.$node);
-    console.log(JSON.stringify(pikachu.$node));
     $('body').append(pikachu.$node);
-    console.log($(pikachu.$node).hasClass("pikachu"));
     // animatePikachu();
   });
+
+  $('.addSnorlaxButton').on('click', function(event) {
+
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    
+    var snorlax = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+
+    window.dancers.push(snorlax);
+    $('body').append(snorlax.$node);
+    // function loop() {
+    //   $(snorlax.$node).css({transform: scale(0.5)});
+    //   $(snorlax.$node).animate({ transform: scale(1)}, 2000, 'linear', function() { loop(); });
+    // }
+
+    // loop();
+
+    
+    // animatePikachu();
+  });
+
+  function loop() {
+    $('.snorlax').css({right:0});
+    $('.snorlax').animate ({
+      right: '+=1400',
+     }, 5000, 'linear', function() {
+            loop();
+        });
+    }
+        
+    loop();
 
   $('body').on('click', '.pikachu', function(event) {
     console.log(event);
@@ -68,6 +100,8 @@ $(document).ready(function() {
     //   }
     // }, 20);
   });
+
+  
 
 
   $('.alignButton').on('click', '.pikachu', function(event) {
