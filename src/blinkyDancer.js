@@ -19,8 +19,7 @@ makeBlinkyDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   // makeDancer.prototype.step.call(this);
 
-  $(this.$node).animate({top: '+=500'}, 5000, 'linear');
-  $(this.$node).animate({top: '-=500'}, 5000, 'linear');
+  this.$node.toggle();
   this.oldStep();
 
   // toggle() is a jQuery method to show/hide the <span> tag.

@@ -12,11 +12,13 @@ makePikachuDancer.prototype.constructor = makePikachuDancer;
 makePikachuDancer.prototype.oldStep = makeDancer.prototype.step;
 
 makePikachuDancer.prototype.step = function() {
-  $(this.$node).animate({left: '+=20px'}, 100, 'swing');
-  $(this.$node).animate({left: '-=20px'}, 100, 'swing');
+  this.$node.animate({left: '+=20px'}, 100, 'swing');
+  this.$node.animate({left: '-=20px'}, 100, 'swing');
   this.oldStep();
 };
 
 makePikachuDancer.prototype.lineUp = function() {
-  $(this.$node).animate({top : (5 + 'px')}, 2000);
+  this.$node.animate({top : (5 + 'px')}, 2000);
 };
+
+//console.log(new makePikachuDancer);

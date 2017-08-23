@@ -32,3 +32,51 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+describe('pikachuDancer', function() {
+  var pikachuDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    pikachuDancer = new makePikachuDancer(10, 20, timeBetweenSteps);
+  });
+  
+  it('should have a jQuery $node object', function() {
+    expect(pikachuDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+  it('should be instance of pikachuDancer', function() {
+    expect(pikachuDancer).to.be.an.instanceof(makePikachuDancer);
+  });
+
+  it('should have a step function that makes its shift', function() {
+    sinon.spy(pikachuDancer.$node, 'animate');
+    pikachuDancer.step();
+    expect(pikachuDancer.$node.animate.called).to.be.true;
+  });
+});
+
+describe('snorlaxSleeper', function() {
+  var snorlaxSleeper, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    snorlaxSleeper = new makeSnorlaxSleeper(10, 20, timeBetweenSteps);
+  });
+  
+  it('should have a jQuery $node object', function() {
+    expect(snorlaxSleeper.$node).to.be.an.instanceof(jQuery);
+  });
+
+  it('should be instance of pikachuDancer', function() {
+    expect(snorlaxSleeper).to.be.an.instanceof(makeSnorlaxSleeper);
+  });
+
+  it('should have a step function that makes its node grow and shrink', function() {
+    sinon.spy(snorlaxSleeper.$node, 'animate');
+    snorlaxSleeper.step();
+    expect(snorlaxSleeper.$node.animate.called).to.be.true;
+  });
+});
